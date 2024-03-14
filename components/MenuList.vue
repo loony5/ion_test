@@ -1,13 +1,15 @@
 <template>
   <div class="menu-list">
-    <div class="item" v-for="item in list" :key="item.key">
+    <button
+      type="button"
+      class="item"
+      v-for="item in list"
+      :key="item.key"
+      @click="(e) => $emit(item.key, e)"
+    >
       <span>{{ item.name }}</span>
-      <button
-        type="button"
-        :class="['arrow', 'button-icon']"
-        @click="(e) => $emit(item.key, e)"
-      ></button>
-    </div>
+      <img src="../assets/icons/arrow_right.png" class="arrow" />
+    </button>
   </div>
 </template>
 
@@ -19,7 +21,6 @@ export default {
       default: () => ({}),
     },
   },
-  setup(props) {},
 };
 </script>
 
@@ -38,8 +39,14 @@ export default {
     .arrow {
       width: 18px;
       height: 18px;
-      background: url(/assets/icons/arrow_right.png);
       background-size: cover;
+    }
+
+    span {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: -0.04em;
     }
   }
 }
