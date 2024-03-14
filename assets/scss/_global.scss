@@ -1,0 +1,183 @@
+@import '~/assets/scss/_mixin.scss';
+
+body {
+  font-family: 'Pretendard';
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+input[type='checkbox'] + label {
+  cursor: pointer;
+  padding-left: 34px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-image: url('../icons/checkbox.svg');
+}
+
+input[type='checkbox']:hover + label {
+  background-image: url('../icons/checkbox_hover.svg');
+}
+
+input[type='checkbox']:checked + label {
+  background-image: url('../icons/checkbox_active.svg');
+}
+input[type='checkbox']:disabled + label {
+  background-image: url('../icons/checkbox_disabled.svg');
+}
+
+.reactive-container {
+  width: 1200px;
+
+  @include small-desktop {
+    width: 900px;
+  }
+
+  @include tablet {
+    width: 600px;
+  }
+
+  @include large-mobile {
+    width: 100%;
+    padding: 0 29px;
+  }
+
+  @include mobile {
+    width: 100%;
+    padding: 0 29px;
+  }
+}
+
+.display1 {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 94px;
+  letter-spacing: -0.04em;
+}
+
+.heading1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 73px;
+  letter-spacing: -0.04em;
+}
+
+.heading2 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 62px;
+  letter-spacing: -0.04em;
+}
+
+.heading3 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: -0.04em;
+}
+
+.heading4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.04em;
+}
+
+.body1 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+}
+
+.body2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+}
+
+.button {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+}
+
+.link {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+}
+
+.brand1 {
+  color: $brand1;
+}
+
+.brand2 {
+  color: $brand2;
+}
+
+.sub1 {
+  color: $sub1;
+}
+
+.sub2 {
+  color: $sub2;
+}
+
+.sub3 {
+  color: $sub3;
+}
+
+.gray1 {
+  color: $gray1;
+}
+
+.gray2 {
+  color: $gray2;
+}
+
+.gray3 {
+  color: $gray3;
+}
+
+.gray4 {
+  color: $gray4;
+}
+
+.white {
+  color: $white;
+}
+
+.shadow1 {
+  box-shadow: $shadow1;
+}
+
+.shadow2 {
+  box-shadow: $shadow2;
+}
+
+.shadow3 {
+  box-shadow: $shadow3;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
