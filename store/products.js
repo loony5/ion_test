@@ -13,11 +13,5 @@ export const useProducts = defineStore('products', {
     findByProductId(id) {
       id;
     },
-    // addCount() {
-    //   this.count++;
-    // },
-    // addFavorite() {
-    //   this.favorite = false;
-    // },
   },
 });

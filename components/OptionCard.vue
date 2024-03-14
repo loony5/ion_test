@@ -15,10 +15,10 @@
       <div class="contents">
         <div class="info-wrapper">
           <div class="info">
-            <Typography variant="heading3" :class="label">{{
-              product.label
-            }}</Typography>
-            <Typography variant="heading4" :class="price">
+            <Typography variant="heading3" class="label">
+              {{ product.label }}
+            </Typography>
+            <Typography variant="heading4" class="price">
               {{ $price(product.price) }}
             </Typography>
           </div>
@@ -66,7 +66,7 @@ export default {
       default: false,
     },
   },
-  setup(props, { emit }) {
+  setup(props) {
     const favoriteStore = useFavorite();
     const product = reactive({
       ...props.value,
@@ -84,7 +84,6 @@ export default {
 
     return {
       product,
-      props,
       favorite,
       order,
     };
