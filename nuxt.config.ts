@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // ssr: false,
   devtools: { enabled: true },
   app: {
     head: {
@@ -22,6 +23,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ['dayjs-nuxt', '@pinia/nuxt', '@vueuse/nuxt'],
+  modules: ['dayjs-nuxt', '@pinia/nuxt'],
   plugins: ['~/plugins/globals.js'],
 });
