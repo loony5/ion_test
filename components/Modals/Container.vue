@@ -1,16 +1,19 @@
 <template>
-  <div class="modal-container" v-if="modalCheck()">
-    <div class="header">
-      <Typography variant="heading3">{{ $props.title }}</Typography>
-      <button type="button" class="button-icon" @click="onClose">
-        <img src="../../assets/icons/close.png" class="close" />
-      </button>
-    </div>
-    <div class="body">
-      <slot name="body" />
-    </div>
-    <div class="bottom">
-      <slot name="bottom" />
+  <div v-if="modalCheck()">
+    <div class="background"></div>
+    <div class="modal-container">
+      <div class="header">
+        <Typography variant="heading3">{{ $props.title }}</Typography>
+        <button type="button" class="button-icon" @click="onClose">
+          <img src="../../assets/icons/close.png" class="close" />
+        </button>
+      </div>
+      <div class="body">
+        <slot name="body" />
+      </div>
+      <div class="bottom">
+        <slot name="bottom" />
+      </div>
     </div>
   </div>
 </template>
@@ -61,6 +64,16 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/scss/_mixin.scss';
+
+.background {
+  background: $gray1;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
 
 .modal-container {
   background: $white;

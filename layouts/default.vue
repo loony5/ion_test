@@ -102,11 +102,14 @@ export default {
       ],
     });
 
-    const active = ref('');
+    const active = computed(() => display.key.length);
 
-    watch(display.key, (value) => {
-      document.body.style.overflow = value.length === 0 ? 'auto' : 'hidden';
-    });
+    watch(
+      () => active.value,
+      (value) => {
+        document.body.style.overflow = value === 0 ? 'auto' : 'hidden';
+      }
+    );
 
     onMounted(() => {
       windowWidth.value = window.innerWidth;
