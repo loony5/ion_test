@@ -48,18 +48,8 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/scss/_mixin.scss';
 
-.modal-container.alert {
+.alert:deep(.modal-container) {
   width: 687px;
-
-  @include small-desktop {
-    width: 80%;
-    height: auto;
-  }
-
-  @include tablet {
-    width: 80%;
-    height: auto;
-  }
 
   @include large-mobile {
     width: 80%;

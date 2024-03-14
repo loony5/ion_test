@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div :class="['drawer-container', menu.open && 'open']" v-if="menu.visible">
-      <div v-if="menu.open">
+    <div :class="['drawer-container', menu.open && 'open']" v-if="mobileSize">
+      <div>
         <div class="header">
           <button
             type="button"
@@ -22,12 +22,12 @@
       <div :class="['nav-bar', 'reactive-container']">
         <button
           type="button"
-          v-if="!desktopSize"
+          v-if="mobileSize"
           :class="['menu_drawer', 'button-icon']"
           @click="menu.handleOpen"
         />
         <img src="~/assets/logo.png" />
-        <div class="menu" v-if="desktopSize">
+        <div class="menu" v-if="!mobileSize">
           <Icon
             name="shopping_cart"
             :count="cart.list.length"
@@ -70,23 +70,14 @@ export default {
     const display = useDisplay();
 
     const windowWidth = ref(0);
-    const desktopSize = computed(() => windowWidth.value >= 768);
+    const mobileSize = computed(() => windowWidth.value < 550);
     const menu = reactive({
-      visible: false,
       open: false,
       handleOpen: () => {
-        menu.visible = true;
-
-        setTimeout(() => {
-          menu.open = true;
-        }, 100);
+        menu.open = true;
       },
       handleClose: () => {
         menu.open = false;
-
-        setTimeout(() => {
-          menu.visible = false;
-        }, 300);
       },
       list: [
         {
@@ -128,7 +119,7 @@ export default {
     };
 
     return {
-      desktopSize,
+      mobileSize,
       windowWidth,
       menu,
       cart,
@@ -160,11 +151,6 @@ export default {
   height: 80px;
   // position: relative;
 
-  @include large-mobile {
-    justify-content: center;
-    height: 56px;
-  }
-
   @include mobile {
     justify-content: center;
     height: 56px;
@@ -175,18 +161,19 @@ export default {
   background: $white;
   height: 100%;
   display: inline-block;
-  width: 0%;
   position: fixed;
-  transition: width 0.5s ease-in-out;
+  width: 100%;
+  left: -600px;
+  transition: all 0.5s ease-in-out;
   z-index: 99;
   margin: 12px 0 0;
   text-align: center;
 
   &.open {
     display: inline-block;
-    width: 100%;
+    left: 0;
     overflow: hidden;
-    transition: width 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
   .header {
